@@ -7,6 +7,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.junit.Test;
 import org.yakindu.sct.model.sgraph.State;
 import org.yakindu.sct.model.sgraph.Transition;
+import org.yakindu.sct.model.stext.stext.impl.VariableDefinitionImpl;
+import org.yakindu.sct.model.stext.stext.impl.EventDefinitionImpl;
 import org.yakindu.sct.model.sgraph.Statechart;
 
 import hu.bme.mit.model2gml.Model2GML;
@@ -32,6 +34,7 @@ public class Main {
 		int nameCounter=0;
 		while (iterator.hasNext()) {
 			EObject content = iterator.next();
+			//System.out.println(content.getClass());
 			if(content instanceof State) {
 				State state = (State) content;
 				System.out.println(state.getName());
@@ -46,6 +49,15 @@ public class Main {
 						+" -> "
 						+transition.getTarget().getName());
 			}
+			if(content instanceof VariableDefinitionImpl) {
+				VariableDefinitionImpl transition = (VariableDefinitionImpl) content;
+						 System.out.println(transition.getName());
+			}
+			if(content instanceof EventDefinitionImpl) {
+				EventDefinitionImpl transition = (EventDefinitionImpl) content;
+						 System.out.println(transition.getName());
+			}
+			
 		}
 		System.out.println("Csapdák: ");
 		for(State trap : traps)

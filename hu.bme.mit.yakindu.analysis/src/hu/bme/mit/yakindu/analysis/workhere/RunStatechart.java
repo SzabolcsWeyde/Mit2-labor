@@ -26,6 +26,7 @@ public class RunStatechart {
 			System.out.print("Event: ");
 			st=sc.nextLine();
 			switch (st.toLowerCase()){
+			//for from here
 			case "white":
 				s.raiseWhite();
 				break;
@@ -35,6 +36,7 @@ public class RunStatechart {
 			case "start":
 				s.raiseStart();
 				break;
+			//from here its the same every time
 			case "exit":
 				exit=true;
 				sc.close();
@@ -49,9 +51,10 @@ public class RunStatechart {
 		
 		System.exit(0);
 	}
-
+	//from here its again depends on the model
 	public static void print(IExampleStatemachine s) {
 		System.out.println("W = " + s.getSCInterface().getWhiteTime());
 		System.out.println("B = " + s.getSCInterface().getBlackTime());
 	}
+	//end of dependence
 }
